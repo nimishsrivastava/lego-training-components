@@ -27,9 +27,9 @@ class App extends Component {
                     isVisible: true
                 })}/>
                 <CustomModal
-                    backdrop={'static'}
+                    backdrop={true}
                     isVisible={this.state.isVisible}
-                    isCloseVisible={true}
+                    isCloseButtonVisible={false}
 
                 />
             </div>

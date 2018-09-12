@@ -8,8 +8,6 @@ class CustomModal extends React.Component {
         this.state = {
             modal: props.isVisible
         };
-
-        this.toggle = this.toggle.bind(this);
     }
 
     componentWillReceiveProps(props) {
@@ -19,7 +17,7 @@ class CustomModal extends React.Component {
     }
 
 
-    toggle() {
+    toggle = () => {
         this.setState({
             modal: !this.state.modal
         });
@@ -31,15 +29,14 @@ class CustomModal extends React.Component {
          * isCloseVisible Flag will be used to show close Button
          *
          **/
-        let isCloseVisible = this.props.isCloseVisible;
-        const {modalStyle} = this.props;
+        const {modalStyle,isCloseButtonVisible} = this.props;
 
         let modalClasses = ['modalStyle', modalStyle].join(' ')
         return (
             <div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop={this.props.backdrop}
                        className={modalClasses}>
-                    <ModalHeader toggle={isCloseVisible && this.toggle}>{this.props.modalHeader}</ModalHeader>
+                    <ModalHeader toggle={isCloseButtonVisible && this.toggle}>{this.props.modalHeader}</ModalHeader>
                     <ModalBody>
                         {this.props.modalBody}
                     </ModalBody>
@@ -56,7 +53,7 @@ CustomModal.defaultProps = {
     modalStyle: 'modalStyle',
     isVisible: false,
     backdrop: 'static',
-    isCloseVisible: false,
+    isCloseButtonVisible: true,
     modalHeader: 'Header',
     modalFooter: 'Footer',
     modalBody: 'Modal Body'

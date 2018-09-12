@@ -12,7 +12,7 @@ class Button extends Component {
                         className={buttonClasses}
                         disabled={this.props.disabled}
                         onClick={this.props.onClick}
-                        {...props}
+                        {...this.props}
                 >
                     {this.props.buttonText}
                 </button>

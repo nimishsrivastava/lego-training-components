@@ -13,6 +13,7 @@ class RadioButton extends Component {
 
         return (
             <div className={radioButtonContainerClass} onClick={() => {
+                this.props.modal[this.props.modalKey] = this.props.id
                 onClick(this.props.id, this.props.label)
             }}>
                 <span
@@ -51,6 +52,8 @@ RadioButton.propTypes = {
     inactiveInnerClassName: PropTypes.string,
     labelClassName: PropTypes.string,
     radioButtonContainerClassName: PropTypes.string,
+    modal: PropTypes.object,
+    modalKey: PropTypes.string
 }
 
 export default RadioButton;

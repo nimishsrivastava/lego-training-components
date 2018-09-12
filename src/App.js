@@ -3,15 +3,35 @@ import './App.css';
 import './components/TextField'
 import TextField from './components/TextField/TextField';
 import Button from "./components/Button";
-import Modal from "./components/Modal";
+import CustomModal from './components/Modal'
+
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isVisible: false
+        }
+    }
+
+    onSave = () => {
+        this.setState({isVisible: false})
+    }
+
+
     render() {
         return (
             <div className="App">
                 Draw your components here
                 <TextField/>
-                <Button/>
-                <Modal/>
+                <Button onClick={() => this.setState({
+                    isVisible: true
+                })}/>
+                <CustomModal
+                    backdrop={'static'}
+                    isVisible={this.state.isVisible}
+                    isCloseVisible={true}
+
+                />
             </div>
         );
     }

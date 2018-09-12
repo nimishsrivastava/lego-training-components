@@ -1,2 +1,2 @@
 import './modal.css'
-export {default} from './Modal'
+export {default} from './CustomModal'

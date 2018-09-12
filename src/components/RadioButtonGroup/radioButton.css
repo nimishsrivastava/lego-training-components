@@ -1,0 +1,47 @@
+.main-container__radio-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    /*justify-content: center;*/
+}
+
+.radio-button__outer-circle--active-blue {
+    background-color: #fff;
+    border: 2px solid dodgerblue;
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-button__inner-circle--active-blue {
+    background-color: dodgerblue;
+    height: 7.5px;
+    width: 7.5px;
+    border-radius: 5px;
+}
+
+.radio-button__outer-circle--inactive-blue {
+    background-color: #fff;
+    border: 2px solid #747474;
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-button__inner-circle--inactive-blue {
+    background-color: #fff;
+    height: 7.5px;
+    width: 7.5px;
+    border-radius: 5px;
+}
+
+.radio-button__label {
+    margin-left: 10px;
+}

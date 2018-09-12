@@ -3,32 +3,42 @@ import './App.css';
 import './components/TextField'
 import RadioButtonGroup from "./components/RadioButtonGroup";
 import CustomerModal from "./modal/customerModal";
+import DropdownMenuComponent from "./components/Dropdown";
 
-const data = [{genderId: '1', value: 'Male'}, {genderId: '2', value: 'Female'}, {genderId: '3', value: 'Others'}]
+const data = [
+    {id: '1', label: 'Header', stylingProps: {header: true}},
+    {id: '2', label: 'Action', stylingProps: {disabled: true}},
+    {id: '3', label: 'Try', stylingProps: {disabled: false}},
+]
+
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedButtonId: ''
+            isDropdownOpen: false
         };
         this.customer = new CustomerModal()
+    }
+
+    toggleDropdown = () => {
+        this.setState(prevState => ({
+            isDropdownOpen: !prevState.isDropdownOpen
+        }));
     }
 
     render() {
         return (
             <div className="App">
-                <RadioButtonGroup
+                <DropdownMenuComponent
+                    buttonName={'Dropdown'}
                     data={data}
-                    idKey={'genderId'}
-                    onClick={(id, value) => {
-                        this.setState({
-                            selectedButtonId: id,
-                        });
+                    dropdownProps={{
+                        isOpen: this.state.isDropdownOpen,
+                        toggle: () => {
+                            this.toggleDropdown()
+                        }
                     }}
-                    modal={this.customer}
-                    modalKey={'genderId'}
-                    selectedButtonId={this.state.selectedButtonId}
                 />
             </div>
         );

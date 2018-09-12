@@ -30,9 +30,6 @@ class App extends Component {
                     modalKey={'genderId'}
                     selectedButtonId={this.state.selectedButtonId}
                 />
-                <button onClick={() => {
-                    // alert(this.customer.genderId)
-                }} />
             </div>
         );
     }
